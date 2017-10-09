@@ -279,6 +279,11 @@
         sr.store.containers[ i ].removeEventListener( 'scroll', _handler );
         sr.store.containers[ i ].removeEventListener( 'resize', _handler );
       }
+      sr.store.containers = [];
+      for ( var key in sr.store.elements ){
+          sr.store.elements[ key ].domEl.removeAttribute('data-sr-id');
+      }
+      sr.store.elements = {};
       window.removeEventListener( 'scroll', _handler );
       window.removeEventListener( 'resize', _handler );
       sr.initialized = false;
